@@ -50,8 +50,14 @@ This encoder-decoder design is very popular for several sequence-to-sequence tas
 
 Neural Machine Translation models vary in terms of their exact architectures. A natural choice for sequential data is the recurrent neural network (RNN), used by most NMT models. Usually an RNN is used for both the encoder and decoder. The RNN models, however, differ in terms of: (a) directionality – unidirectional or bidirectional; (b) depth – single- or multi-layer; and (c) type – often either a vanilla RNN, a Long Short-term Memory (LSTM), or a gated recurrent unit (GRU). Bidirectionality on the encoder side generally gives better performance (with some degradation in speed as more layers are used). 
 
+# Project structure and content
 
 Steps:
-- Preprocess - Convert text to sequence of integers.
+- Preprocess - Convert text to sequence of integers. A pipeline to feed the models is first elaborated. 
 - Models - Create models which accepts a sequence of integers as input and returns a probability distribution over possible translations
 - Prediction - Run the model on English text to return French translation.
+
+Various networks are tested to assess performance.
+- Simple LSTM cell with or without embedding layer
+- Bidirectional LSTM with or without embedding layer
+- Various Encoder-Decoder models: LSTM or GRU, unidirectional or bidirectional, various depth.
