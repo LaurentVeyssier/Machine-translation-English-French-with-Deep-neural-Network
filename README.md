@@ -46,7 +46,7 @@ If we roll back the time steps, we can see what the overall architecture looks l
 
 ![](images/EncDec_unrolled.png)
 
-This encoder-decoder design is very popular for several sequence-to-sequence tasks, not just Machine Translation. It is effective for image captioning for instance.
+This encoder-decoder design is very popular for several sequence-to-sequence tasks, not just Machine Translation. It is effective for image captioning for instance. You can check out an implementation [here](https://github.com/LaurentVeyssier/Image-Captioning-Project-with-full-Encoder-Decoder-model).
 
 Neural Machine Translation models vary in terms of their exact architectures. A natural choice for sequential data is the recurrent neural network (RNN), used by most NMT models. Usually an RNN is used for both the encoder and decoder. The RNN models, however, differ in terms of: (a) directionality – unidirectional or bidirectional; (b) depth – single- or multi-layer; and (c) type – often either a vanilla RNN, a Long Short-term Memory (LSTM), or a gated recurrent unit (GRU). Bidirectionality on the encoder side generally gives better performance (with some degradation in speed as more layers are used). 
 
