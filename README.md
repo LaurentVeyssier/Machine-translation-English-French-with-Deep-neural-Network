@@ -1,9 +1,9 @@
 # Machine-translation-English-French-with-Deep-neural-Network
- Build a deep neural network that functions as part of an end-to-end machine translation pipeline
+ Build a deep neural network with Keras that functions as part of an end-to-end machine translation pipeline
 
 This project is part of [Udacity Natural Language Processing (NLP) nanodegree](https://www.udacity.com/course/natural-language-processing-nanodegree--nd892).
 
-The objective is to build a machine translation model. The pipeline will accept English text as input and return the French translation.
+The objective is to build a machine translation model. The pipeline will accept English text as input and return the French translation. The project uses Keras.
 
 # Introduction
 
