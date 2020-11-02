@@ -58,7 +58,7 @@ So two components are absolutely critical in Seq2Seq Encoder-Decoder architectur
 - The RepeatVector is used as an adapter to fit the fixed-sized 2D output of the encoder to the length and 3D input expected by the decoder.
 - The TimeDistributed wrapper allows the same output layer to be reused for each element in the output sequence.
 
-This encoder-decoder design is very popular for several sequence-to-sequence tasks, not just Machine Translation. It is effective for Movement detection and classification (video), question-answering, image captioning for instance. You can check out an implementation [here](https://github.com/LaurentVeyssier/Image-Captioning-Project-with-full-Encoder-Decoder-model).
+This encoder-decoder design is very popular for several sequence-to-sequence tasks, not just Machine Translation. It is effective for Movement detection and classification (video), question-answering, image captioning for instance. You can check out an implementation of Image Captioning in my projects [here](https://github.com/LaurentVeyssier/Image-Captioning-Project-with-full-Encoder-Decoder-model).
 
 Neural Machine Translation models vary in terms of their exact architectures. A natural choice for sequential data is the recurrent neural network (RNN), used by most NMT models. Usually an RNN is used for both the encoder and decoder. The RNN models, however, differ in terms of: (a) directionality – unidirectional or bidirectional; (b) depth – single- or multi-layer; and (c) type – often either a vanilla RNN, a Long Short-term Memory (LSTM), or a gated recurrent unit (GRU). Bidirectionality on the encoder side generally gives better performance (with some degradation in speed as more layers are used). 
 
