@@ -18,7 +18,7 @@ For a neural network to predict on text data, it first has to be turned into dat
 
 We convert each word or token into a one-hot encoded vector, and stack those vectors into a matrix. Once we have the sequence of word vectors, we can feed them in one at a time to the neural network. 
 
-![](asset/simpleRNN.png)
+![](images/simpleRNN.png)
 
 A RNN network comprizes the following key components:
 - Embedding Layer: The first layer of the network is typically an embedding layer that helps enhance the representation of the word. This produces a more compact word vector that is then fed into one or more recurrent layers. Note: You could skip the embedding step, and feed in the one-hot encoded vectors directly to the recurrent layer(s). This may reduce the complexity of the model and make it easier to train, but the quality of translation may suffer as one-hot encoded vectors cannot exploit similarities and differences between words.
@@ -27,7 +27,7 @@ A RNN network comprizes the following key components:
 
 It’s easier to understand how this works over time if we unroll the network. Each copy of the network represents its state at the respective time step t. At any time t, the recurrent layer receives input x_t as well as the state vector from the previous step, h_t−1. This process is continued till the entire input is exhausted. Each cell is the same network, repeated over time as it processes the input sequence.
 
-![](asset/unrolledRNN.png)
+![](images/unrolledRNN.png)
 
 **The main drawback of such a simple model is that we are trying to read the corresponding output for each input word immediately. This would only work in situations where the source and target language have an almost one-to-one mapping between words.**
 What we should ideally do is to let the network learn an internal representation of the entire input sentence, and then start generating the output translation. 
@@ -36,7 +36,7 @@ This can be achieved using two different networks which we will cover in next se
 
 # Encoder-Decoder RNN architecture
 
-![](asset/EncDec.png)
+![](images/EncDec.png)
 
 The first network is called an Encoder, which accepts the source sentence, one word at a time, and captures its overall meaning in a single vector or context vector. This is simply the state vector at the last time step. Note that the encoder network is not used to produce any outputs.
 
@@ -44,7 +44,7 @@ The second network is called a Decoder, which then interprets the context vector
 
 If we roll back the time steps, we can see what the overall architecture looks like (encoder in light blue, decoder in green). The encoder vector tries to contain as much of the useful input information as possible to help the decoder get the best results. It’s the only information from the input that the decoder will get. The deep blue corresponds to the Dense layer section predicting the next work over the target vocabulary. This is basically an Embedding layer coverting back to the target language.
 
-![](asset/EncDec_unrolled.png)
+![](images/EncDec_unrolled.png)
 
 This encoder-decoder design is very popular for several sequence-to-sequence tasks, not just Machine Translation. It is effective for image captioning for instance.
 
