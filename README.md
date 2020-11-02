@@ -50,9 +50,9 @@ If we roll back the time steps, we can see what the overall architecture looks l
 
 ![](images/EncDec_unrolled.png)
 
-Yet we must connect the Encoder with the Decoder when this seems incompatible as they do not fit: The encoder produces a 2-dimensional matrix of outputs, where the length is defined by the number of memory cells in the layer. The decoder is an RNN layer that expects a 3D input of [samples, time steps, features] in order to produce a decoded sequence of some different length defined by the problem.
+Yet we must connect the Encoder with the Decoder although it seems incompatible as they do not fit: The encoder produces a 2-dimensional matrix of outputs (batch_size, features), where the length is defined by the number of memory cells in the layer (features). The decoder is an RNN layer that expects a 3D input of [batch_size, time steps, features] in order to produce a decoded sequence of some different length defined by the problem.
 
-This is solved using a RepeatVector layer. This layer simply repeats the provided 2D input multiple times to create a 3D output. The RepeatVector is configurated to repeat the fixed length vector one time for each time step in the output sequence (the length of the target sequence).
+This is solved using a RepeatVector layer (keras). This layer simply repeats the provided 2D input multiple times to create a 3D output. The RepeatVector is configurated to repeat the fixed length vector one time for each time step in the output sequence (the length of the target sequence).
 
 So two components are absolutely critical in Seq2Seq Encoder-Decoder architectures:
 - The RepeatVector is used as an adapter to fit the fixed-sized 2D output of the encoder to the length and 3D input expected by the decoder.
